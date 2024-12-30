@@ -1,4 +1,899 @@
-      <div id="payroll-section" class="payroll-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow</title>
+    <!-- Link to Google Fonts for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #F6F4F0;
+            }
+
+            .container {
+                max-width: 1340px;
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .header-left {
+                display: flex;
+                align-items: center;
+                margin-left: 120px; /* Adjusted to align with profile */
+            }
+
+            .logo {
+             margin-bottom: 10px; /* Add space between the logo and the profile */
+            }
+
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                margin-right: 20px;
+                object-fit: cover;
+                object-position: top; /* Adjusted to show the head beautifully */
+            }
+
+            .profile-info h1 {
+                margin: 0;
+                font-size: 32px;
+                color: #4DA1A9;
+                font-weight: bold;
+            }
+
+            .profile-info p {
+                margin: 4px 0;
+                font-size: 16px;
+                color: #777;
+            }
+
+         .date-time {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #0f3958;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Set a fixed width to make it rectangular */
+            height: 150px; /* Set a fixed height to make it rectangular */
+            }
+
+        .date-time h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #fff;
+        }
+
+        .date-time .clock {
+            font-size: 2.9rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #F6F4F0;
+            background-color: #1f3958;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 0 1px #F6F4F0; /* Added outside stroke */
+        }
+
+        .button-container button:hover {
+            background-color: #1f3958;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        nav a {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #2E5077;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            background-color: #F6F4F0;
+            border: 2px solid transparent;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+        }
+
+        nav a.active {
+            background-color: #2E5077;
+            color: #F6F4F0;
+            border-color: #F6F4F0;
+            transform: translateY(-5px);
+        }
+
+        .attendance-history,
+        .leave-section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .attendance-history {
+            background-color: #2E5077;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .attendance-history.active,
+        .leave-section.active {
+            display: block;
+        }
+
+        .attendance-history-inner,
+        .leave-history-inner {
+            background-color: #F6F4F0;
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .attendance-history-inner h2,
+        .leave-history-inner h2 {
+            margin: 0 0 20px 0;
+            font-size: 48px;
+            color: #2E5077;
+            font-weight: 1000;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        table th,
+        table td {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-size: 18px; /* Contents font size */
+        }
+
+        table th {
+            background-color: #2E5077;
+            color: white;
+            font-weight: bold;
+            font-size: 24px; /* Border font size */
+        }
+
+        .leave-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .leave-details {
+            background-color: #2E5077;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .leave-request {
+            background-color: #2E5077;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .leave-history {
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .leave-details div {
+            background-color: #F6F4F0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .leave-details div:last-child {
+            margin-right: 0;
+        }
+
+        .leave-details div h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #2E5077;
+        }
+
+        .leave-details div p {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #4DA1A9;
+        }
+
+        .leave-request {
+            margin-bottom: 20px;
+        }
+
+        .leave-request form {
+            background-color: #F6F4F0;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .leave-request form div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .leave-request form label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .leave-request form input,
+        .leave-request form select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .leave-request form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2E5077;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .leave-request form button:hover {
+            background-color: #1f3958;
+        }
+
+        .outer-container {
+            background-color: #003366;
+            padding: 20px;
+        }
+
+        /* Align navigation buttons */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        nav a {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #2E5077;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            background-color: white;
+            border: 2px solid transparent;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+        }
+
+        nav a.active {
+            background-color: #2E5077;
+            color: white;
+            border-color: #2E5077;
+            transform: translateY(-5px);
+        }
+
+        .leave-section {
+            background-color: #2E5077;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .leave-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .leave-details, .leave-request {
+            background-color: #F6F4F0;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+           
+        }
+
+        .leave-details div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .leave-details div h3 {
+            font-size: 16px;
+            color: #003366;
+        }
+
+        .leave-details div p {
+            font-size: 18px;
+            color: #4DA1A9;
+            font-weight: bold;
+        }
+
+        .leave-request form div {
+            margin-bottom: 15px;
+        }
+
+        .leave-request form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .leave-request form input,
+        .leave-request form select,
+        .leave-request form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #F6F4F0;
+            border-radius: 5px;
+        }
+
+        .leave-request form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4DA1A9;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .leave-request form button:hover {
+            background-color: #3b8994;
+        }
+
+        .leave-history {
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .leave-history-inner {
+            background-color: #F6F4F0;
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .leave-history-inner h2 {
+            margin: 0 0 20px 0;
+            font-size: 48px;
+            color: #2E5077;
+            font-weight: 1000;
+            text-align: left;
+        }
+
+        .leave-history table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        .leave-history table th,
+        .leave-history table td {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-size: 18px; /* Contents font size */
+        }
+
+        .leave-history table th {
+            background-color: #2E5077;
+            color: white;
+            font-weight: bold;
+            font-size: 24px; /* Border font size */
+        }
+
+        .leave-history table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .leave-history table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2E5077;
+            margin-bottom: 10px;
+        }
+
+        .modal-body {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .modal-footer button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #2E5077;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-footer button:hover {
+            background-color: #1f3958;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .confirm-modal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .confirm-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .confirm-modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2E5077;
+            margin-bottom: 10px;
+        }
+
+        .confirm-modal-body {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .confirm-modal-footer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .confirm-modal-footer button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #2E5077;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .confirm-modal-footer button:hover {
+            background-color: #1f3958;
+        }
+
+        .confirm-modal-footer .cancel {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .confirm-modal-footer .cancel:hover {
+            background-color: #999;
+        }
+
+        .payroll-section {
+            background-color: #F6F4F0; /* Consistent background color */
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        .payroll-section.active {
+            display: block; /* Display when active */
+        }
+
+        .payroll-container {
+            background-color: #2E5077;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .payroll-overview {
+            padding: 20px;
+            border-radius: 0px;
+            margin-bottom: 20px;
+            background-color: #F6F4F0; /* Light background color */
+        }
+
+        .payroll-overview h2 {
+            margin: 0 0 20px 0;
+            font-size: 48px;
+            color: #2E5077;
+            font-weight: 1000;
+            text-align: left;
+        }
+
+        .payroll-overview h3 {
+            margin: 0 0 15px 0;
+            font-size: 22px;
+            color: #2E5077;
+        }
+
+        .payroll-overview p {
+            font-size: 16px;
+            color: #2E5077;
+        }
+
+        .payroll-overview .breakdown {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .payroll-overview .breakdown table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd; /* Add outside border */
+        }
+
+        .payroll-overview .breakdown table td {
+            padding: 10px;
+            border: none; /* Remove inside borders */
+            text-align: right; /* Align text to the right */
+        }
+
+        .payroll-overview .breakdown table td:last-child {
+            text-align: right;
+        }
+
+        .payroll-overview .breakdown .total {
+            background-color: #4DA1A9;
+            font-weight: bold;
+            color: white;
+        }
+
+        .payment-history {
+            padding: 30px;
+            border-radius: 20px;
+            background-color: #F6F4F0; /* Light background color */
+        }
+
+        .payment-history h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #2E5077;
+        }
+
+        .payment-history table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .payment-history table th,
+        .payment-history table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        .payment-history table th {
+            background-color: #2E5077;
+            color: #F6F4F0;
+            font-size: 24px;
+        }
+
+        .payment-history table td {
+            font-size: 18px;
+        }
+
+        .payment-history table td:last-child {
+            text-align: center;
+        }
+
+        .payment-history table td button {
+            background-color: #2E5077;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .payroll-section {
+            background-color: #F6F4F0;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .payroll-container {
+            background-color: #2E5077;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .payroll-overview {
+            background-color: #F6F4F0;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .payroll-overview h2 {
+            margin: 0 0 10px;
+            font-size: 36px;
+            color: #2E5077;
+            font-weight: bold;
+        }
+
+        .payroll-overview h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #2E5077;
+        }
+
+        .payroll-overview .breakdown table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .payroll-overview .breakdown table td {
+            padding: 10px;
+            font-size: 16px;
+            text-align: right; /* Ensure text is aligned to the right */
+        }
+
+        .payroll-overview .breakdown table td:last-child {
+            text-align: right;
+        }
+
+        .payroll-overview .breakdown .total td {
+            background-color: #4DA1A9;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .payroll-overview .breakdown h3 {
+            margin: 0;
+            font-size: 16px;
+            color: white;
+           border-radius: 0 !important; /* Ensure border-radius is removed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <img src="workflow logo.png" alt="Workflow Logo" style="width: 100px; height: auto; position: absolute; top: 20px; left: 20px;">
+                <img src="https://i.pinimg.com/736x/32/48/78/324878fb2d8decffc8341ccff0ac672c.jpg" alt="Profile Photo" class="profile-photo">
+                <div class="profile-info">
+                    <h1>Choi Beomgyu</h1>
+                    <p>ID # 1234 5678</p>
+                    <p>Junior Developer, IT Department</p>
+                </div>
+            </div>
+            <div class="date-time">
+                <h2 id="current-date"></h2> <!-- Updated to dynamically update the date -->
+                <div id="clock" class="clock">08:01:00</div>
+                <div class="button-container">
+                    <button onclick="recordBreak()">BREAK</button>
+                    <button onclick="recordTimeout()">TIME OUT</button>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" class="active" onclick="switchTab(event, 'attendance-history')">Check In</a>
+            <a href="#" onclick="switchTab(event, 'leave-section')">Leave</a>
+            <a href="#" onclick="switchTab(event, 'payroll-section')">Payroll</a>
+        </nav>
+
+        <div id="attendance-history" class="attendance-history active">
+            <div class="attendance-history-inner">
+                <h2>Attendance History</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>TIME IN</th>
+                            <th>TIME OUT</th>
+                            <th>BREAK</th>
+                            <th>DURATION</th>
+                            <th>HOURS</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-records">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="leave-section" class="leave-section">
+            <div class="leave-container">
+                <div class="leave-details">
+                    <div>
+                        <h3>Scheduled Paid Leave</h3>
+                        <p>24 hours</p>
+                    </div>
+                    <div>
+                        <h3>Sick Leave</h3>
+                        <p>48 hours</p>
+                    </div>
+                    <div>
+                        <h3>Vacation Leave</h3>
+                        <p>23 hours</p>
+                    </div>
+                </div>
+
+                <div class="leave-request">
+                    <form>
+                        <div>
+                            <label for="leave-from">Leave Date (From):</label>
+                            <input type="date" id="leave-from">
+                        </div>
+                        <div>
+                            <label for="leave-to">Leave Date (To):</label>
+                            <input type="date" id="leave-to">
+                        </div>
+                        <div>
+                            <label for="leave-type">Type of Leave:</label>
+                            <select id="leave-type">
+                                <option value="">Select Leave Type</option>
+                                <option value="sick">Sick Leave</option>
+                                <option value="vacation">Vacation Leave</option>
+                                <option value="paid">Paid Leave</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="leave-history">
+                <div class="leave-history-inner">
+                    <h2>Leave History</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>START DATE</th>
+                                <th>END DATE</th>
+                                <th>KIND</th>
+                                <th>DURATION</th>
+                                <th>STATUS</th>
+                                <th>FILES</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leave-history-records">
+                            <tr>
+                                <td>November 25, 2024</td>
+                                <td>November 25, 2024</td>
+                                <td>Sick Leave</td>
+                                <td>8 hours</td>
+                                <td>Approved</td>
+                                <td><a href="#">View</a></td>
+                            </tr>
+                            <!-- Additional rows can go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="payroll-section" class="payroll-section">
             <div class="payroll-container">
                 <div class="payroll-overview">
                     <h2 style="font-size: 40px; font-weight: bold;">Payroll Overview</h2>
@@ -8,24 +903,235 @@
                         <table>
                             <tr>
                                 <td style="text-align: left;">Hours worked</td>
-                                <td>24 hrs</td>
+                                <td style="text-align: right;">24 hrs</td>
                             </tr>
                             <tr>
                                 <td style="text-align: left;">Pay per hour</td>
-                                <td>P300.00/hr</td>
+                                <td style="text-align: right;">P 300.00/hr</td>
                             </tr>
                             <tr>
                                 <td style="text-align: left;">Deductions:</td>
-                                <td style="text-align: left;">-Taxes (10%)</td>
+                                <td style="text-align: right;">-Taxes (10%)</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td style="color: #4DA1A9;">P30.00</td>
+                                <td style="text-align: right; color: #4DA1A9;">P 30.00</td>
                             </tr>
                             <tr class="total">
                                 <td style="text-align: left; font-style: italic;">TOTAL AMOUNT:</td>
-                                <td style="font-style: italic">P770.00</td>
+                                <td style="text-align: right; font-style: italic">P 770.00</td>
                             </tr>
                         </table>
                     </div>
                 </div>
+                
+                <div class="payment-history">
+                    <h3>Payment History</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TRANSACTION ID</th>
+                                <th>DATE</th>
+                                <th>TIME</th>
+                                <th>TOTAL AMOUNT</th>
+                                <th>STATUS</th>
+                                <th>VIEW</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>November 25, 2024</td>
+                                <td>November 25, 2024</td>
+                                <td>8:09:30</td>
+                                <td>P800</td>
+                                <td>Completed</td>
+                                <td><button>View</button></td>
+                            </tr>
+                            <!-- Repeat rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">Leave Request Submitted</div>
+            <div class="modal-body" id="modal-message"></div>
+            <div class="modal-footer">
+                <button onclick="closeModal()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="confirm-modal">
+        <div class="confirm-modal-content">
+            <div class="confirm-modal-header">Confirm Close</div>
+            <div class="confirm-modal-body">Are you sure you want to close this message?</div>
+            <div class="confirm-modal-footer">
+                <button onclick="confirmClose()">Confirm</button>
+                <button class="cancel" onclick="cancelClose()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour12: true });
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        function updateDate() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('en-US', options);
+            document.getElementById('current-date').textContent = dateString; // Updated to dynamically update the date
+        }
+
+        function switchTab(event, sectionId) {
+            document.querySelectorAll('nav a').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.attendance-history, .leave-section, .payroll-section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        const attendanceData = [
+            {
+                date: 'November 25, 2024',
+                timeIn: '8:09:30',
+                timeOut: '5:09:30',
+                breakTime: '1:00:00',
+                duration: '9:00:00',
+                hours: '8:00:00',
+                status: 'Present'
+            },
+            {
+                date: 'November 26, 2024',
+                timeIn: '8:10:23',
+                timeOut: '5:11:23',
+                breakTime: '1:00:00',
+                duration: '9:01:00',
+                hours: '8:01:00',
+                status: 'Present'
+            }
+        ];
+
+        function loadAttendanceRecords() {
+            const tableBody = document.getElementById('attendance-records');
+            attendanceData.forEach(record => {
+                const row = `<tr>
+                    <td>${record.date}</td>
+                    <td>${record.timeIn}</td>
+                    <td>${record.timeOut}</td>
+                    <td>${record.breakTime}</td>
+                    <td>${record.duration}</td>
+                    <td>${record.hours}</td>
+                    <td>${record.status}</td>
+                </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        function recordBreak() {
+            alert('Break recorded!');
+        }
+
+        function recordTimeout() {
+            alert('Time out recorded!');
+        }
+
+        function submitLeaveRequest(event) {
+            event.preventDefault();
+            const leaveType = document.getElementById('leave-type').value;
+            const leaveFrom = document.getElementById('leave-from').value;
+            const leaveTo = document.getElementById('leave-to').value;
+
+            if (leaveType && leaveFrom && leaveTo) {
+                const modal = document.getElementById('myModal');
+                const modalMessage = document.getElementById('modal-message');
+                modalMessage.textContent = `Leave request submitted successfully!\nType: ${leaveType}\nFrom: ${leaveFrom}\nTo: ${leaveTo}`;
+                modal.style.display = 'block';
+            } else {
+                alert('Please fill out all fields before submitting.');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        function confirmClose() {
+            const confirmModal = document.getElementById('confirmModal');
+            const modal = document.getElementById('myModal');
+            confirmModal.style.display = 'none';
+            modal.style.display = 'none';
+        }
+
+        function cancelClose() {
+            const confirmModal = document.getElementById('confirmModal');
+            confirmModal.style.display = 'none';
+        }
+
+        const payrollData = [
+            {
+                payDate: 'November 30, 2024',
+                grossPay: '$3,000.00',
+                deductions: '$500.00',
+                netPay: '$2,500.00',
+                status: 'Paid'
+            },
+            {
+                payDate: 'October 31, 2024',
+                grossPay: '$3,000.00',
+                deductions: '$500.00',
+                netPay: '$2,500.00',
+                status: 'Paid'
+            }
+        ];
+
+        function loadPayrollRecords() {
+            const tableBody = document.getElementById('payroll-records');
+            payrollData.forEach(record => {
+                const row = `<tr>
+                    <td>${record.payDate}</td>
+                    <td>${record.grossPay}</td>
+                    <td>${record.deductions}</td>
+                    <td>${record.netPay}</td>
+                    <td>${record.status}</td>
+                </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.leave-request form').addEventListener('submit', submitLeaveRequest);
+            updateDate();
+            setInterval(updateClock, 1000);
+            loadAttendanceRecords();
+            loadPayrollRecords();
+
+            const modal = document.getElementById('myModal');
+            const span = document.getElementsByClassName('close')[0];
+
+            span.onclick = function() {
+                const confirmModal = document.getElementById('confirmModal');
+                confirmModal.style.display = 'block';
+            }
+
+            window.onclick = function(event) {
+                const confirmModal = document.getElementById('confirmModal');
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                } else if (event.target == confirmModal) {
+                    confirmModal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
