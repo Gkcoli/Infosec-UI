@@ -193,101 +193,92 @@
             font-size: 24px; /* Border font size */
         }
 
-        .leave-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .leave-details {
+        .leave-section {
             background-color: #2E5077;
-            padding: 30px;
-            border-radius: 8px;
-        }
-
-        .leave-request {
-            background-color: #2E5077;
-            padding: 30px;
-            border-radius: 8px;
-        }
-
-        .leave-history {
             padding: 30px;
             border-radius: 20px;
+            margin-top: 20px;
         }
-
-        .leave-details div {
+        
+        .leave-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .leave-details, .leave-request {
             background-color: #F6F4F0;
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
-            flex: 1;
-            margin-right: 10px;
+            flex: 1 1 calc(50% - 10px); /* Adjusts width */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .leave-details div:last-child {
-            margin-right: 0;
-        }
-
-        .leave-details div h3 {
-            margin: 0;
-            font-size: 18px;
+        
+        .leave-details h2,
+        .leave-request h2 {
+            font-size: 40px; /* Increased font size */
+            font-weight: 800; /* Increased font weight */
             color: #2E5077;
+            margin-bottom: 15px;
         }
-
-        .leave-details div p {
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-            color: #4DA1A9;
-        }
-
-        .leave-request {
-            margin-bottom: 20px;
-        }
-
-        .leave-request form {
-            background-color: #F6F4F0;
-            padding: 20px;
-            border-radius: 20px;
+        
+        .leave-details .leave-item {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #E0E0E0;
         }
-
-        .leave-request form div {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+        
+        .leave-details .leave-item:last-child {
+            border-bottom: none;
         }
-
-        .leave-request form label {
+        
+        .leave-details .leave-item h3 {
             font-size: 16px;
-            color: #333;
+            color: #003366;
+            margin: 0;
         }
-
-        .leave-request form input,
-        .leave-request form select {
+        
+        .leave-details .leave-item p {
+            font-size: 18px;
+            color: #4DA1A9;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .leave-request .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .leave-request .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .leave-request .form-group input,
+        .leave-request .form-group select {
             width: 100%;
             padding: 10px;
             font-size: 14px;
-            border: 1px solid #ccc;
+            border: 1px solid #E0E0E0;
             border-radius: 5px;
         }
-
-        .leave-request form button {
-            padding: 10px 20px;
+        
+        .leave-request button {
+            width: 100%;
+            padding: 12px;
             font-size: 16px;
-            background-color: #2E5077;
+            background-color: #4DA1A9;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            align-self: flex-start;
         }
-
-        .leave-request form button:hover {
-            background-color: #1f3958;
+        
+        .leave-request button:hover {
+            background-color: #3b8994;
         }
 
         .outer-container {
@@ -647,7 +638,6 @@
         .payroll-overview .breakdown table td {
             padding: 10px;
             border: none; /* Remove inside borders */
-            text-align: right; /* Align text to the right */
         }
 
         .payroll-overview .breakdown table td:last-child {
@@ -748,7 +738,6 @@
         .payroll-overview .breakdown table td {
             padding: 10px;
             font-size: 16px;
-            text-align: right; /* Ensure text is aligned to the right */
         }
 
         .payroll-overview .breakdown table td:last-child {
@@ -823,31 +812,32 @@
         <div id="leave-section" class="leave-section">
             <div class="leave-container">
                 <div class="leave-details">
-                    <div>
+                    <h2>Away from Work</h2>
+                    <div class="leave-item">
                         <h3>Scheduled Paid Leave</h3>
                         <p>24 hours</p>
                     </div>
-                    <div>
+                    <div class="leave-item">
                         <h3>Sick Leave</h3>
                         <p>48 hours</p>
                     </div>
-                    <div>
+                    <div class="leave-item">
                         <h3>Vacation Leave</h3>
                         <p>23 hours</p>
                     </div>
                 </div>
-
                 <div class="leave-request">
+                    <h2>Request Leave</h2>
                     <form>
-                        <div>
+                        <div class="form-group">
                             <label for="leave-from">Leave Date (From):</label>
                             <input type="date" id="leave-from">
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label for="leave-to">Leave Date (To):</label>
                             <input type="date" id="leave-to">
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label for="leave-type">Type of Leave:</label>
                             <select id="leave-type">
                                 <option value="">Select Leave Type</option>
@@ -856,13 +846,12 @@
                                 <option value="paid">Paid Leave</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="form-group">
                             <button type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
-
             <div class="leave-history">
                 <div class="leave-history-inner">
                     <h2>Leave History</h2>
@@ -903,28 +892,27 @@
                         <table>
                             <tr>
                                 <td style="text-align: left;">Hours worked</td>
-                                <td style="text-align: right;">24 hrs</td>
+                                <td>24 hrs</td>
                             </tr>
                             <tr>
                                 <td style="text-align: left;">Pay per hour</td>
-                                <td style="text-align: right;">P 300.00/hr</td>
+                                <td>P300.00/hr</td>
                             </tr>
                             <tr>
                                 <td style="text-align: left;">Deductions:</td>
-                                <td style="text-align: right;">-Taxes (10%)</td>
+                                <td style="text-align: left;">-Taxes (10%)</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td style="text-align: right; color: #4DA1A9;">P 30.00</td>
+                                <td style="color: #4DA1A9; text-align: right;">P30.00</td>
                             </tr>
                             <tr class="total">
                                 <td style="text-align: left; font-style: italic;">TOTAL AMOUNT:</td>
-                                <td style="text-align: right; font-style: italic">P 770.00</td>
+                                <td style="font-style: italic">P770.00</td>
                             </tr>
                         </table>
                     </div>
                 </div>
-                
                 <div class="payment-history">
                     <h3>Payment History</h3>
                     <table>
@@ -1135,3 +1123,4 @@
     </script>
 </body>
 </html>
+
