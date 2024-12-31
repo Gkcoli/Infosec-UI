@@ -7,60 +7,63 @@
     <!-- Link to Google Fonts for Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-            body {
-                font-family: 'Poppins', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #F6F4F0;
-            }
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F4F0;
+        }
 
-            .container {
-                max-width: 1340px;
-                margin: 20px auto;
-                padding: 20px;
-            }
+        .container {
+            max-width: 1340px;
+            margin: 20px auto;
+            padding: 20px;
+        }
 
-            .header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px;
-                margin-bottom: 20px;
-            }
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
-            .header-left {
-                display: flex;
-                align-items: center;
-                margin-left: 120px; /* Adjusted to align with profile */
-            }
+        .header-left {
+            display: flex;
+            align-items: center;
+            margin-left: 120px; /* Adjusted to align with profile */
+        }
 
-            .logo {
-             margin-bottom: 10px; /* Add space between the logo and the profile */
-            }
+        .logo {
+            margin-bottom: 10px; /* Add space between the logo and the profile */
+        }
 
-            .profile-photo {
-                width: 180px;
-                height: 180px;
-                border-radius: 50%;
-                margin-right: 20px;
-                object-fit: cover;
-                object-position: top; /* Adjusted to show the head beautifully */
-            }
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: top; /* Adjusted to show the head beautifully */
+        }
 
-            .profile-info h1 {
-                margin: 0;
-                font-size: 32px;
-                color: #4DA1A9;
-                font-weight: bold;
-            }
+        .profile-info h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #4DA1A9;
+            font-weight: bold;
+        }
 
-            .profile-info p {
-                margin: 4px 0;
-                font-size: 16px;
-                color: #777;
-            }
+        .profile-info p {
+            margin: 4px 0;
+            font-size: 16px;
+            color: #777;
+        }
 
-         .date-time {
+        /* Date and time styles */
+        .date-time {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -72,7 +75,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 300px; /* Set a fixed width to make it rectangular */
             height: 150px; /* Set a fixed height to make it rectangular */
-            }
+        }
 
         .date-time h2 {
             margin: 0;
@@ -108,6 +111,7 @@
             background-color: #1f3958;
         }
 
+        /* Navigation styles */
         nav {
             display: flex;
             justify-content: center;
@@ -138,6 +142,7 @@
             transform: translateY(-5px);
         }
 
+        /* Section styles */
         .attendance-history,
         .leave-section {
             margin-top: 20px;
@@ -393,22 +398,25 @@
         }
 
         .leave-history {
-            padding: 30px;
-            border-radius: 20px;
+            background-color: #F6F4F0;
+            padding: 20px; /* Same padding as other sections */
+            border-radius: 10px; /* Same border-radius as other sections */
+            flex: 1 1 calc(50% - 10px); /* Same flex properties as other sections */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Same box-shadow as other sections */
+            margin-top: 20px; /* Same margin-top as other sections */
         }
 
         .leave-history-inner {
             background-color: #F6F4F0;
-            padding: 50px;
-            border-radius: 20px;
+            padding: 20px; /* Adjusted padding to match other sections */
+            border-radius: 10px; /* Adjusted border-radius to match other sections */
         }
 
         .leave-history-inner h2 {
-            margin: 0 0 20px 0;
-            font-size: 48px;
+            margin: 0 0 15px 0; /* Adjusted margin to match other sections */
+            font-size: 48px; /* Adjusted font size to match other sections */
             color: #2E5077;
-            font-weight: 1000;
-            text-align: left;
+            font-weight: 800; /* Adjusted font weight to match other sections */
         }
 
         .leave-history table {
@@ -654,12 +662,15 @@
             padding: 30px;
             border-radius: 20px;
             background-color: #F6F4F0; /* Light background color */
+            border: 1px solid black; /* Added black outer border */
         }
 
         .payment-history h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-            color: #2E5077;
+            margin: 0 0 20px 0; /* Same margin as Payroll Overview */
+            font-size: 48px; /* Same font size as Payroll Overview */
+            color: #2E5077; /* Same color as Payroll Overview */
+            font-weight: 1000; /* Same font weight as Payroll Overview */
+            text-align: left; /* Same text alignment as Payroll Overview */
         }
 
         .payment-history table {
@@ -758,6 +769,29 @@
             color: white;
            border-radius: 0 !important; /* Ensure border-radius is removed */
         }
+
+        .textbox {
+            width: 100%; /* Ensure full width */
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .refined-textbox {
+            background-color: #fff;
+            border: 2px solid #4DA1A9;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+        .refined-textbox:focus {
+            border-color: #2E5077;
+            box-shadow: 0 0 5px rgba(46, 80, 119, 0.5);
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -808,7 +842,7 @@
                 </table>
             </div>
         </div>
-
+        
         <div id="leave-section" class="leave-section">
             <div class="leave-container">
                 <div class="leave-details">
@@ -831,15 +865,15 @@
                     <form>
                         <div class="form-group">
                             <label for="leave-from">Leave Date (From):</label>
-                            <input type="date" id="leave-from">
+                            <input type="date" id="leave-from" class="textbox refined-textbox">
                         </div>
                         <div class="form-group">
                             <label for="leave-to">Leave Date (To):</label>
-                            <input type="date" id="leave-to">
+                            <input type="date" id="leave-to" class="textbox refined-textbox">
                         </div>
                         <div class="form-group">
                             <label for="leave-type">Type of Leave:</label>
-                            <select id="leave-type">
+                            <select id="leave-type" class="textbox refined-textbox">
                                 <option value="">Select Leave Type</option>
                                 <option value="sick">Sick Leave</option>
                                 <option value="vacation">Vacation Leave</option>
@@ -1123,4 +1157,3 @@
     </script>
 </body>
 </html>
-
