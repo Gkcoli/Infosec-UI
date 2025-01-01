@@ -33,11 +33,11 @@
         .header-left {
             display: flex;
             align-items: center;
-            margin-left: 120px; /* Adjusted to align with profile */
+            margin-left: 120px; 
         }
 
         .logo {
-            margin-bottom: 10px; /* Add space between the logo and the profile */
+            margin-bottom: 10px; 
         }
 
         .profile-photo {
@@ -46,7 +46,7 @@
             border-radius: 50%;
             margin-right: 20px;
             object-fit: cover;
-            object-position: top; /* Adjusted to show the head beautifully */
+            object-position: top; 
         }
 
         .profile-info h1 {
@@ -142,7 +142,7 @@
             transform: translateY(-5px);
         }
 
-        /* Section styles */
+         /* Attendance History */
         .attendance-history,
         .leave-section {
             margin-top: 20px;
@@ -197,27 +197,243 @@
             font-weight: bold;
             font-size: 24px; /* Border font size */
         }
-
+        /* Leave Section */
         .leave-section {
             background-color: #2E5077;
-            padding: 30px;
-            border-radius: 20px;
+            padding: 30px; /* Consistent padding */
+            border-radius: 20px; /* Consistent border-radius */
             margin-top: 20px;
         }
-        
+
         .leave-container {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: space-between;
+            align-items: stretch;
         }
-        
+
         .leave-details, .leave-request {
             background-color: #F6F4F0;
-            padding: 20px;
+            padding: 30px; /* Consistent padding */
+            border-radius: 20px; /* Consistent border-radius */
+            flex: 1 1 calc(50% - 10px);
+        }
+
+        /* Leave Details Section */
+        .leave-details h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #2E5077;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .leave-details .leave-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .leave-details .leave-item:last-child {
+            border-bottom: none;
+        }
+
+        .leave-details .leave-item h3 {
+            font-size: 16px;
+            color: #003366;
+            margin: 0;
+        }
+
+        .leave-details .leave-item p {
+            font-size: 18px;
+            color: #4DA1A9;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* Leave Request Section */
+        .leave-request {
+            background-color: #F6F4F0; /* Consistent background color */
+            padding: 30px; /* Consistent padding */
+            border-radius: 20px; /* Consistent border-radius */
+            margin-top: 20px; /* Spacing matches other sections */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Matches styling of Away from Work */
+            border: none; /* Ensure no solid border for modern look */
+        }
+
+        .leave-request h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #2E5077;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .leave-request .form-group {
+            margin-bottom: 15px;
+        }
+
+        .leave-request .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .leave-request .form-group input,
+        .leave-request .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+        }
+
+        .leave-request button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #4DA1A9;
+            color: white;
+            border: none;
             border-radius: 10px;
-            flex: 1 1 calc(50% - 10px); /* Adjusts width */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .leave-request button:hover {
+            background-color: #3b8994;
+        }
+
+        /* Consistent Styling for Leave History */
+        .leave-history {
+            background-color: #F6F4F0;
+            padding: 30px; /* Consistent padding */
+            border-radius: 20px; /* Consistent border-radius */
+            margin-top: 20px;
+        }
+
+        .leave-history-inner {
+            background-color: #F6F4F0;
+            padding: 30px; /* Consistent padding */
+            border-radius: 20px; /* Consistent border-radius */
+        }
+
+        .leave-history-inner h2 {
+            margin: 0 0 15px 0;
+            font-size: 48px;
+            color: #2E5077;
+            font-weight: 800;
+        }
+
+        .leave-history table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leave-history table th,
+        .leave-history table td {
+            padding: 10px; /* Adjusted padding for consistency */
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .leave-history table th {
+            background-color: #2E5077;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .leave-history table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .leave-history table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .leave-history table td a {
+            background-color: #2E5077;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .leave-history table td a:hover {
+            background-color: #1f3958;
+        }
+
+         /* Away from Work Section */
+        .away-from-work {
+            background-color: #F6F4F0; /* Consistent background color */
+            padding: 30px; /* Consistent padding */
+            border-radius: 20px; /* Same border-radius as other sections */
+            margin-top: 20px; /* Ensure spacing matches other sections */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Matches new section styling */
+            border: none; /* Ensure no solid border for modern look */
+         }
+  
+        
+
+        .away-from-work h2 {
+            font-size: 40px; /* Updated font size */
+            font-weight: 900; /* Updated font weight */
+            text-align: left;
+            color: #2E5077;
+            margin-top: 0px;
+        }
+
+        .away-from-work .leave-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .away-from-work .leave-item img {
+            width: 90px; /* Adjusted width */
+            height: 90px; /* Adjusted height */
+            margin-right: 10px;
+        }
+
+        .away-from-work .leave-item h3, .away-from-work .leave-item p {
+            text-align: left; /* Ensure text is aligned to the left */
+            margin: 0; /* Remove any default margin */
+        }
+
+        .away-from-work .leave-item h3 {
+            flex: 1; /* Allow h3 to take available space */
+        }
+
+        .away-from-work .leave-item p {
+            flex: 0 0 auto; /* Prevent p from stretching */
+        }
+
+        .away-from-work .leave-item:last-child {
+            border-bottom: none;
+        }
+
+        .away-from-work .leave-item .leave-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .away-from-work .leave-item .leave-info span {
+            font-size: 16px;
+            color: #003366;
+        }
+
+        .away-from-work .leave-item .leave-info .hours {
+            color: #4DA1A9;
+            font-weight: bold;
         }
         
         .leave-details h2,
@@ -226,6 +442,8 @@
             font-weight: 800; /* Increased font weight */
             color: #2E5077;
             margin-bottom: 15px;
+            width: 100%; /* Ensure the titles take the full width of the container */
+            margin-top: 0; /* Remove top margin */
         }
         
         .leave-details .leave-item {
@@ -272,14 +490,16 @@
         }
         
         .leave-request button {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
+            width: auto; /* Adjust width to auto */
+            padding: 10px 20px; /* Adjust padding for smaller size */
+            font-size: 14px; /* Adjust font size */
             background-color: #4DA1A9;
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Center align */
         }
         
         .leave-request button:hover {
@@ -289,37 +509,6 @@
         .outer-container {
             background-color: #003366;
             padding: 20px;
-        }
-
-        /* Align navigation buttons */
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 10px 0;
-        }
-
-        nav a {
-            padding: 10px 20px;
-            font-size: 16px;
-            text-decoration: none;
-            color: #2E5077;
-            font-weight: bold;
-            border-radius: 10px 10px 0 0;
-            background-color: white;
-            border: 2px solid transparent;
-            margin-right: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-            text-align: center;
-        }
-
-        nav a.active {
-            background-color: #2E5077;
-            color: white;
-            border-color: #2E5077;
-            transform: translateY(-5px);
         }
 
         .leave-section {
@@ -337,8 +526,8 @@
 
         .leave-details, .leave-request {
             background-color: #F6F4F0;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 20px;
             flex: 1;
            
         }
@@ -402,14 +591,13 @@
             padding: 20px; /* Same padding as other sections */
             border-radius: 10px; /* Same border-radius as other sections */
             flex: 1 1 calc(50% - 10px); /* Same flex properties as other sections */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Same box-shadow as other sections */
             margin-top: 20px; /* Same margin-top as other sections */
         }
 
         .leave-history-inner {
             background-color: #F6F4F0;
             padding: 20px; /* Adjusted padding to match other sections */
-            border-radius: 10px; /* Adjusted border-radius to match other sections */
+            border-radius: 20px; /* Adjusted border-radius to match other sections */
         }
 
         .leave-history-inner h2 {
@@ -449,148 +637,223 @@
             background-color: #f1f1f1;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .modal-header {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2E5077;
-            margin-bottom: 10px;
-        }
-
-        .modal-body {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .modal-footer button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
+        .leave-history table td a {
             background-color: #2E5077;
+            color: white;
             border: none;
+            padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 12px;
+            text-decoration: none; /* Ensure it looks like a button */
+            display: inline-block; /* Ensure it behaves like a button */
         }
 
-        .modal-footer button:hover {
+        .leave-history table td a:hover {
             background-color: #1f3958;
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+            
+    /* Modal Overlay */
+    .confirm-modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4); /* Dimmed background */
+        padding-top: 60px;
+    }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+    /* Modal Content */
+    .confirm-modal-content {
+        background-color: #FAF7F4; /* Slight beige/cream background for softness */
+        margin: 5% auto;
+        padding: 30px; /* Comfortable padding */
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 500px; /* Adjusted for a compact view */
+        max-width: 90%; /* For responsiveness */
+        text-align: left;
+        font-family: 'Arial', sans-serif;
+        position: relative;
+    }
 
-        .confirm-modal {
-            display: none;
-            position: fixed;
-            z-index: 2;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
+    /* Close Icon */
+    .confirm-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #4DA1A9;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-        .confirm-modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
+    .confirm-close:hover {
+        color: #1f3958;
+    }
 
-        .confirm-modal-header {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2E5077;
-            margin-bottom: 10px;
-        }
+    /* Modal Header */
+    .confirm-modal-header {
+        font-size: 30px;
+        font-weight: bold;
+        color: #4DA1A9;
+        margin-bottom: 10px;
+    }
 
-        .confirm-modal-body {
+    .confirm-modal-header::after {
+        content: "";
+        display: block;
+        margin-top: 10px;
+        width: 100%; /* Full width of the modal content */
+        height: 2px;
+        background-color: #CCCCCC;
+    }
+
+        /* Modal Body */
+    .confirm-modal-body {
+        font-size: 18px;
+        font-weight: 600; /* Semibold */
+        color: black; /* Changed color to black */
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+
+    .modal-row span {
+        font-weight: bold;
+        color: #2E5077; /* Slightly muted dark blue for labels */
+    }
+
+    /* Footer (Confirm Button Section) */
+    .confirm-modal-footer {
+        display: flex;
+        justify-content: center; /* Center-align the button */
+        margin-top: 30px;
+    }
+
+    /* Confirm Button */
+    .confirm-button {
+        padding: 10px 30px; /* Comfortable size */
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #4DA1A9; /* Soft teal */
+        color: #FFFFFF;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+
+
+    .confirm-modal-body .modal-row .modal-value {
+        color: black; /* Changed color to black */
+    }
+    .confirm-modal-body .modal-row .modal-label {
+        color: black; /* Changed color to black */
+    }
+        .textbox {
+            width: 100%; /* Ensure full width */
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .refined-textbox {
+            background-color: #fff;
+            border: 2px solid #4DA1A9;
+            padding: 12px;
             font-size: 16px;
-            color: #333;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+        .refined-textbox:focus {
+            border-color: #2E5077;
+            box-shadow: 0 0 5px rgba(46, 80, 119, 0.5);
+            outline: none;
+        }
+        .form-container {
+            background-color: #fcfcfa;
+            border: 5px solid #205aab;
+            border-radius: 10px;
+            padding: 25px;
+            width: 420px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h2 {
+            color: #205aab;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .confirm-modal-footer {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
         }
 
-        .confirm-modal-footer button {
-            padding: 10px 20px;
-            font-size: 16px;
+        .textbox {
+            width: calc(50% - 10px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .textbox:last-child {
+            margin-right: 0;
+        }
+
+        .full-width-textbox {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .submit-btn {
+            background-color: #309fc0;
             color: white;
-            background-color: #2E5077;
             border: none;
             border-radius: 5px;
+            padding: 10px 30px;
+            font-size: 14px;
             cursor: pointer;
         }
 
-        .confirm-modal-footer button:hover {
-            background-color: #1f3958;
+        .submit-btn:hover {
+            background-color: #2788a7;
         }
 
-        .confirm-modal-footer .cancel {
-            background-color: #ccc;
-            color: #333;
+        .form-inline {
+            display: flex;
+            align-items: center;
         }
 
-        .confirm-modal-footer .cancel:hover {
-            background-color: #999;
-        }
+        .form-inline label {
+            margin-right: 10px;
+        } 
 
+        /* Payroll Section */
         .payroll-section {
             background-color: #F6F4F0; /* Consistent background color */
-            padding: 20px;
+            padding: 30px;
             border-radius: 20px;
             margin-top: 20px;
             display: none; /* Initially hidden */
@@ -608,7 +871,7 @@
 
         .payroll-overview {
             padding: 20px;
-            border-radius: 0px;
+            border-radius: 20px;
             margin-bottom: 20px;
             background-color: #F6F4F0; /* Light background color */
         }
@@ -662,7 +925,7 @@
             padding: 30px;
             border-radius: 20px;
             background-color: #F6F4F0; /* Light background color */
-            border: 1px solid black; /* Added black outer border */
+       
         }
 
         .payment-history h3 {
@@ -724,23 +987,6 @@
 
         .payroll-overview {
             background-color: #F6F4F0;
-            padding: 20px;
-            border-radius: 20px;
-        }
-
-        .payroll-overview h2 {
-            margin: 0 0 10px;
-            font-size: 36px;
-            color: #2E5077;
-            font-weight: bold;
-        }
-
-        .payroll-overview h3 {
-            margin: 10px 0;
-            font-size: 20px;
-            color: #2E5077;
-        }
-
         .payroll-overview .breakdown table {
             width: 100%;
             border-collapse: collapse;
@@ -770,28 +1016,6 @@
            border-radius: 0 !important; /* Ensure border-radius is removed */
         }
 
-        .textbox {
-            width: 100%; /* Ensure full width */
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #E0E0E0;
-            border-radius: 5px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        .refined-textbox {
-            background-color: #fff;
-            border: 2px solid #4DA1A9;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 8px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-        }
-        .refined-textbox:focus {
-            border-color: #2E5077;
-            box-shadow: 0 0 5px rgba(46, 80, 119, 0.5);
-            outline: none;
-        }
     </style>
 </head>
 <body>
@@ -845,45 +1069,51 @@
         
         <div id="leave-section" class="leave-section">
             <div class="leave-container">
-                <div class="leave-details">
+                <div class="away-from-work">
                     <h2>Away from Work</h2>
                     <div class="leave-item">
+                        <img src="1.png" alt="Icon">
                         <h3>Scheduled Paid Leave</h3>
                         <p>24 hours</p>
                     </div>
                     <div class="leave-item">
+                        <img src="2.png" alt="Icon">
                         <h3>Sick Leave</h3>
                         <p>48 hours</p>
                     </div>
                     <div class="leave-item">
+                        <img src="3.png" alt="Icon">
                         <h3>Vacation Leave</h3>
                         <p>23 hours</p>
                     </div>
                 </div>
                 <div class="leave-request">
-                    <h2>Request Leave</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="leave-from">Leave Date (From):</label>
-                            <input type="date" id="leave-from" class="textbox refined-textbox">
-                        </div>
-                        <div class="form-group">
-                            <label for="leave-to">Leave Date (To):</label>
-                            <input type="date" id="leave-to" class="textbox refined-textbox">
-                        </div>
-                        <div class="form-group">
-                            <label for="leave-type">Type of Leave:</label>
-                            <select id="leave-type" class="textbox refined-textbox">
-                                <option value="">Select Leave Type</option>
-                                <option value="sick">Sick Leave</option>
-                                <option value="vacation">Vacation Leave</option>
-                                <option value="paid">Paid Leave</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
+                    <div class="leave-request-inner">
+                        <h2>Request Leave</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="leave-from">Leave Date</label>
+                                <div class="form-inline">
+                                    <label for="leave-from">From:</label>
+                                    <input type="date" id="leave-from" class="textbox">
+                                    <label for="leave-to">To:</label>
+                                    <input type="date" id="leave-to" class="textbox">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="leave-type">Type of Leave</label>
+                                <select id="leave-type" class="full-width-textbox">
+                                    <option value="">Select Leave Type</option>
+                                    <option value="Paid Leave">Paid Leave</option>
+                                    <option value="Sick Leave">Sick Leave</option>
+                                    <option value="Vacation Leave">Vacation Leave</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="submit-btn" style="background-color: #4DA1A9; color: white; border: none; border-radius: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer;">SUBMIT</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="leave-history">
@@ -907,7 +1137,7 @@
                                 <td>Sick Leave</td>
                                 <td>8 hours</td>
                                 <td>Approved</td>
-                                <td><a href="#">View</a></td>
+                                <td><a href="#">View</a></td> <!-- Ensure the View button is inside the Files column -->
                             </tr>
                             <!-- Additional rows can go here -->
                         </tbody>
@@ -977,24 +1207,27 @@
         </div>
     </div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-header">Leave Request Submitted</div>
-            <div class="modal-body" id="modal-message"></div>
-            <div class="modal-footer">
-                <button onclick="closeModal()">Confirm</button>
-            </div>
-        </div>
-    </div>
-
+    <!-- Confirm Modal -->
     <div id="confirmModal" class="confirm-modal">
         <div class="confirm-modal-content">
-            <div class="confirm-modal-header">Confirm Close</div>
-            <div class="confirm-modal-body">Are you sure you want to close this message?</div>
+            <span class="confirm-close" onclick="closeModal()">&#10005;</span>
+            <div class="confirm-modal-header">Confirm Leave Request</div>
+            <div class="confirm-modal-body">
+                <div class="modal-row">
+                    <span class="modal-label">From:</span>
+                    <span class="modal-value" id="modal-from-date"></span>
+                </div>
+                <div class="modal-row">
+                    <span class="modal-label">To:</span>
+                    <span class="modal-value" id="modal-to-date"></span>
+                </div>
+                <div class="modal-row">
+                    <span class="modal-label">Kind of Leave:</span>
+                    <span class="modal-value" id="modal-leave-type"></span>
+                </div>
+            </div>
             <div class="confirm-modal-footer">
-                <button onclick="confirmClose()">Confirm</button>
-                <button class="cancel" onclick="cancelClose()">Cancel</button>
+                <button class="confirm-button" onclick="confirmClose()">CONFIRM</button>
             </div>
         </div>
     </div>
@@ -1073,61 +1306,36 @@
             const leaveTo = document.getElementById('leave-to').value;
 
             if (leaveType && leaveFrom && leaveTo) {
-                const modal = document.getElementById('myModal');
-                const modalMessage = document.getElementById('modal-message');
-                modalMessage.textContent = `Leave request submitted successfully!\nType: ${leaveType}\nFrom: ${leaveFrom}\nTo: ${leaveTo}`;
-                modal.style.display = 'block';
+                document.getElementById('modal-from-date').textContent = formatDate(leaveFrom);
+                document.getElementById('modal-to-date').textContent = formatDate(leaveTo);
+                document.getElementById('modal-leave-type').textContent = leaveType;
+
+                const confirmModal = document.getElementById('confirmModal');
+                confirmModal.style.display = 'block';
             } else {
                 alert('Please fill out all fields before submitting.');
             }
         }
 
         function closeModal() {
-            const modal = document.getElementById('myModal');
-            modal.style.display = 'none';
+            const confirmModal = document.getElementById('confirmModal');
+            confirmModal.style.display = 'none';
         }
 
         function confirmClose() {
             const confirmModal = document.getElementById('confirmModal');
-            const modal = document.getElementById('myModal');
             confirmModal.style.display = 'none';
-            modal.style.display = 'none';
+            alert('Leave request confirmed!');
         }
 
-        function cancelClose() {
-            const confirmModal = document.getElementById('confirmModal');
-            confirmModal.style.display = 'none';
-        }
-
-        const payrollData = [
-            {
-                payDate: 'November 30, 2024',
-                grossPay: '$3,000.00',
-                deductions: '$500.00',
-                netPay: '$2,500.00',
-                status: 'Paid'
-            },
-            {
-                payDate: 'October 31, 2024',
-                grossPay: '$3,000.00',
-                deductions: '$500.00',
-                netPay: '$2,500.00',
-                status: 'Paid'
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) {
+                console.error("Invalid date:", dateString); // Handle invalid dates
+                return dateString; // Fallback to raw string
             }
-        ];
-
-        function loadPayrollRecords() {
-            const tableBody = document.getElementById('payroll-records');
-            payrollData.forEach(record => {
-                const row = `<tr>
-                    <td>${record.payDate}</td>
-                    <td>${record.grossPay}</td>
-                    <td>${record.deductions}</td>
-                    <td>${record.netPay}</td>
-                    <td>${record.status}</td>
-                </tr>`;
-                tableBody.insertAdjacentHTML('beforeend', row);
-            });
+            const options = { year: 'numeric', month: 'long', day: 'numeric' }; // Formatting
+            return date.toLocaleDateString(undefined, options);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1136,24 +1344,63 @@
             setInterval(updateClock, 1000);
             loadAttendanceRecords();
             loadPayrollRecords();
-
-            const modal = document.getElementById('myModal');
-            const span = document.getElementsByClassName('close')[0];
-
-            span.onclick = function() {
-                const confirmModal = document.getElementById('confirmModal');
-                confirmModal.style.display = 'block';
-            }
-
-            window.onclick = function(event) {
-                const confirmModal = document.getElementById('confirmModal');
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                } else if (event.target == confirmModal) {
-                    confirmModal.style.display = 'none';
-                }
-            }
         });
+
+        // Button to open the modal
+        const fileLeaveButton = document.getElementById('fileLeaveButton');
+
+        // Elements within the modal
+        const confirmModal = document.getElementById('confirmModal');
+        const modalFromDate = document.getElementById('modal-from-date');
+        const modalToDate = document.getElementById('modal-to-date');
+        const modalLeaveType = document.getElementById('modal-leave-type');
+
+        // Function to format the date into "Month Day, Year"
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) {
+                console.error("Invalid date:", dateString); // Handle invalid dates
+                return dateString; // Fallback to raw string
+            }
+            const options = { year: 'numeric', month: 'long', day: 'numeric' }; // Formatting
+            return date.toLocaleDateString(undefined, options);
+        }
+
+        // Event listener for button click
+        fileLeaveButton.addEventListener('click', function () {
+            console.log("Opening modal..."); // Debugging log
+
+            // Example inputs (dates should be in 'YYYY-MM-DD' format for parsing)
+            const rawFromDate = "2024-12-29";
+            const rawToDate = "2025-01-02";
+            const leaveTypeValue = "Vacation Leave";
+
+            // Apply formatting and update modal text
+            modalFromDate.textContent = formatDate(rawFromDate);
+            modalToDate.textContent = formatDate(rawToDate);
+            modalLeaveType.textContent = leaveTypeValue;
+
+            console.log("Modal values set:", {
+                from: modalFromDate.textContent,
+                to: modalToDate.textContent,
+                type: modalLeaveType.textContent,
+            }); // Debugging log
+
+            confirmModal.style.display = 'block';
+        });
+
+        // Function to close the modal
+        function closeModal() {
+            console.log("Closing modal..."); // Debugging log
+            confirmModal.style.display = 'none';
+        }
+
+        // Confirm button handler
+        function confirmClose() {
+            alert('Leave request confirmed!');
+            closeModal();
+        }
+
     </script>
 </body>
 </html>
