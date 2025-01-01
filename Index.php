@@ -68,7 +68,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #0f3958;
+            background-color: #2E5077;
             color: #fff;
             border-radius: 10px;
             padding: 20px;
@@ -100,7 +100,7 @@
             padding: 10px 20px;
             font-size: 16px;
             color: #F6F4F0;
-            background-color: #1f3958;
+            background-color: #2E5077;
             border: none;
             border-radius: 8px;
             cursor: pointer;
